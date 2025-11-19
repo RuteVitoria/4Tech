@@ -1,29 +1,54 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subject } from 'rxjs';
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
-  }));
+
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  let routerEvents$: Subject<any>;
+
+  beforeEach(() => {
+    routerEvents$ = new Subject<any>();
+
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
+      declarations: [AppComponent],
+      providers: [
+        {
+          provide: Router,
+          useValue: {
+            events: routerEvents$.asObservable()
+          }
+        }
+      ]
+    });
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+  });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'os-planos-app'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('os-planos-app');
+  it('should hide header on route "/"', () => {
+    const event = new NavigationEnd(1, '/', '/');
+    routerEvents$.next(event);
+    expect(component.showHeader).toBeFalse();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('os-planos-app app is running!');
+  it('should hide header on route "" (empty route)', () => {
+    const event = new NavigationEnd(1, '', '');
+    routerEvents$.next(event);
+    expect(component.showHeader).toBeFalse();
+  });
+
+  it('should show header on any other route', () => {
+    const event = new NavigationEnd(1, '/planos', '/planos');
+    routerEvents$.next(event);
+    expect(component.showHeader).toBeTrue();
   });
 });

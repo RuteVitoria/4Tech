@@ -1,0 +1,40 @@
+<div class="page-wrapper">
+  <mat-card class="form-card mat-elevation-z8">
+    <div class="form-header">
+      <h2>{{ isEdit ? 'Editar Plano de Saúde' : 'Cadastrar Novo Plano' }}</h2>
+      <mat-icon class="header-icon">health_and_safety</mat-icon>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="salvar()" class="form-plano">
+      <div class="form-fields">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nome do Plano</mat-label>
+          <input matInput formControlName="nome" />
+          <mat-icon matSuffix>badge</mat-icon>
+          <mat-error *ngIf="form.get('nome')?.hasError('required')">
+            O nome é obrigatório
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Código ANS</mat-label>
+          <input matInput formControlName="codigo_registro_ans" />
+          <mat-icon matSuffix>confirmation_number</mat-icon>
+          <mat-error *ngIf="form.get('codigo_registro_ans')?.hasError('required')">
+            O código ANS é obrigatório
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="actions">
+        <button mat-stroked-button color="warn" type="button" (click)="cancelar()">
+          Cancelar
+        </button>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+          Salvar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,69 @@
+{
+  "planos": [
+    {
+      "id": "1",
+      "nome": "Plano Bronze",
+      "codigo_registro_ans": "ANS-100001"
+    },
+    {
+      "id": "2",
+      "nome": "Plano Prata",
+      "codigo_registro_ans": "ANS-100002"
+    },
+    {
+      "id": "3",
+      "nome": "Plano Ouro",
+      "codigo_registro_ans": "ANS-100003"
+    }
+  ],
+  "beneficiarios": [
+    {
+      "id": "996a",
+      "nomeCompleto": "Rute",
+      "cpf": "70213004259",
+      "dataNascimento": "2003-01-29",
+      "plano_id": "3",
+      "status": "ATIVO"
+    },
+    {
+      "id": "8cfb",
+      "nomeCompleto": "Rosa",
+      "cpf": "27644308253",
+      "dataNascimento": "1968-02-16",
+      "plano_id": "2",
+      "status": "ATIVO"
+    },
+    {
+      "nomeCompleto": "testando",
+      "cpf": "33928614215",
+      "dataNascimento": "1963-09-26",
+      "plano_id": "2",
+      "status": "INATIVO",
+      "id": "6532"
+    },
+    {
+      "nomeCompleto": "Ba",
+      "cpf": "33928614215",
+      "dataNascimento": "1990-04-17",
+      "plano_id": "3",
+      "status": "ATIVO",
+      "id": "8fb8"
+    },
+    {
+      "id": "9841",
+      "nomeCompleto": "Felipe",
+      "cpf": "33914624216",
+      "dataNascimento": "1991-03-15",
+      "plano_id": "1",
+      "status": "INATIVO"
+    },
+    {
+      "id": "bd04",
+      "nomeCompleto": "Jose",
+      "cpf": "33928614215",
+      "dataNascimento": "1963-09-26",
+      "plano_id": "3",
+      "status": "INATIVO"
+    }
+  ]
+}

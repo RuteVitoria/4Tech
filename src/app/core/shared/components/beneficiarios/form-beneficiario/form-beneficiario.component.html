@@ -1,0 +1,96 @@
+<div class="page-wrapper">
+  <mat-card class="form-card mat-elevation-z8">
+    <div class="form-header">
+      <h2>{{ isEdit ? 'Editar Beneficiário' : 'Cadastrar Novo Beneficiário' }}</h2>
+      <mat-icon class="header-icon">person</mat-icon>
+    </div>
+
+    <form [formGroup]="beneficiarioForm" (ngSubmit)="salvar()" class="form-beneficiario">
+      <div class="form-fields">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nome Completo</mat-label>
+          <input matInput formControlName="nomeCompleto" />
+          <mat-icon matSuffix>badge</mat-icon>
+          <mat-error *ngIf="beneficiarioForm.get('nomeCompleto')?.hasError('required')">
+            Campo obrigatório
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>CPF</mat-label>
+          <input matInput formControlName="cpf" maxlength="11" />
+          <mat-icon matSuffix>credit_card</mat-icon>
+          <mat-error *ngIf="beneficiarioForm.get('cpf')?.hasError('pattern')">
+            CPF deve conter 11 dígitos
+          </mat-error>
+          <mat-error *ngIf="beneficiarioForm.get('cpf')?.hasError('required')">
+            Campo obrigatório
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Data de Nascimento</mat-label>
+          <input matInput type="date" formControlName="dataNascimento" />
+          <mat-icon matSuffix>calendar_today</mat-icon>
+          <mat-error *ngIf="beneficiarioForm.get('dataNascimento')?.hasError('required')">
+            Campo obrigatório
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Plano</mat-label>
+          <mat-select formControlName="plano_id">
+            <mat-option *ngFor="let plano of planos" [value]="plano.id">
+              {{ plano.nome }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="beneficiarioForm.get('plano_id')?.hasError('required')">
+            Selecione um plano
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Status</mat-label>
+          <mat-select formControlName="status">
+            <mat-option value="ATIVO">ATIVO</mat-option>
+            <mat-option value="INATIVO">INATIVO</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>check_circle</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+
+      <div class="actions">
+        <button mat-stroked-button color="warn" type="button" (click)="cancelar()" [disabled]="loading">
+          Cancelar
+        </button>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="beneficiarioForm.invalid || loading">
+          Salvar
+        </button>
+      </div>
+    </form>
+  </mat-card>
+  
+  <ng-template #successDialog let-data>
+  <h2 mat-dialog-title>Sucesso</h2>
+  <mat-dialog-content>
+    <p>{{ data.message }}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" mat-dialog-close>Fechar</button>
+    </mat-dialog-actions>
+  </ng-template>
+
+  <ng-template #errorDialog let-data>
+    <h2 mat-dialog-title>Erro</h2>
+    <mat-dialog-content>
+      <p>{{ data.message }}</p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-raised-button color="warn" mat-dialog-close>Fechar</button>
+    </mat-dialog-actions>
+  </ng-template>
+
+</div>

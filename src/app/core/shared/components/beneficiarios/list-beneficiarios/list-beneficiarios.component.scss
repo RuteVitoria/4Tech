@@ -1,0 +1,159 @@
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #fafafa;
+  min-height: calc(100vh - 64px);
+}
+
+.list-card {
+  width: 100%;
+  max-width: 1100px;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.title mat-icon {
+  color: #3f51b5;
+  font-size: 28px;
+}
+
+.title h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #3f51b5;
+  margin: 0;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+th {
+  background-color: #f5f5f5;
+  color: #333;
+  font-weight: 600;
+}
+
+td,
+th {
+  padding: 0.75rem 1rem;
+}
+
+tr:nth-child(even) td {
+  background-color: #fafafa;
+}
+
+tr:hover td {
+  background-color: #f0f0ff;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.ativo {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.status-badge.inativo {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+.acoes-cell {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem 0;
+  color: #666;
+}
+
+.empty-state mat-icon {
+  font-size: 48px;
+  color: #9e9e9e;
+}
+
+::ng-deep .snackbar-success {
+  background-color: #4caf50;
+  color: white;
+  font-weight: 500;
+}
+
+::ng-deep .snackbar-error {
+  background-color: #f44336;
+  color: white;
+  font-weight: 500;
+}
+
+.acoes-header {
+  text-align: center !important;
+}
+
+th.mat-header-cell.acoes-header,
+td.mat-cell.acoes-cell {
+  width: 120px;
+}
+
+.acoes-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.acoes-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.header .title {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.header .title mat-icon {
+  font-size: 28px;
+  height: 28px;
+  width: 28px;
+  line-height: 28px;
+}
+

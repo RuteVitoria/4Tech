@@ -1,27 +1,154 @@
-# OsPlanosApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
-## Development server
+## Estrutura do Projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# OS Planos App — Frontend Angular + JSON Server
 
-## Code scaffolding
+Aplicação desenvolvida em **Angular** para gerenciamento de **Planos de Saúde** e **Beneficiários**, utilizando um backend mockado com **JSON Server**.  
+Este projeto foi entregue como parte de um processo seletivo técnico.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Tecnologias Utilizadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### **Frontend**
 
-## Running unit tests
+- Angular 17+
+- TypeScript
+- Angular Material
+- Reactive Forms
+- RxJS
+- Karma + Jasmine (Testes Unitários)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### **Backend Mockado**
 
-## Running end-to-end tests
+- JSON Server
+- Arquivo `db.json` fornecido pela empresa
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Estrutura do Projeto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+/src
+├── app
+│ ├── core
+│ ├── shared
+│ └── features
+├── assets
+├── db.json ← Mock do backend
+
+---
+
+# Como executar o projeto
+
+## 1. Instalar dependências
+
+```bash
+npm install
+```
+
+---
+
+# Rodar o backend mockado (JSON Server)
+
+## 1. O projeto utiliza o arquivo src/db.json como banco de dados fake
+
+```bash
+json-server --watch src/db.json --port 3000
+
+```
+
+# Endpoints disponibilizados
+
+## 1. GET
+
+/planos
+Lista planos de saúde
+
+## 2. POST
+
+/planos
+Cadastra plano
+
+## 3. GET
+
+/beneficiarios
+Lista beneficiários
+
+## 4. POST
+
+/beneficiarios
+Cadastra beneficiário
+
+## 4. PUT
+
+/beneficiarios/:id
+Edita beneficiário
+
+---
+
+# Rodar o frontend Angular
+
+## A aplicação estará disponível em:
+
+http://localhost:4200
+
+<!-- ```bash -->
+
+npm start
+
+---
+
+## Executando Testes Unitários
+
+- O projeto utiliza Karma + Jasmine.
+- ng test
+- Os testes incluem:
+
+  Services (mockados com HttpTestingController)
+
+  Components (com spies de Router, MatDialog, ActivatedRoute)
+
+  Reactive Forms (validações + submit)
+
+  Fluxos de criação e edição
+
+Funcionalidades Implementadas:
+
+✔ Planos
+
+    Listagem de planos
+
+    Criação
+
+    Atualização
+
+    Formulário com validação
+
+    Integração com JSON Server
+
+✔ Beneficiários
+
+    Listagem
+
+    Cadastro
+
+    Edição
+
+    Validações de formulário (ReactiveForms)
+
+    Diálogo de sucesso/erro com Angular Material
+
+---
+
+Requisitos para rodar a aplicação
+
+    Node.js 16+
+
+    Angular CLI instalado globalmente:
+
+    npm install -g @angular/cli
+
+    JSON Server instalado globalmente:
+
+    npm install -g json-server

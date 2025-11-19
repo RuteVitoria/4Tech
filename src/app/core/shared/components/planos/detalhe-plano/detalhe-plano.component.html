@@ -1,0 +1,35 @@
+<div class="page-wrapper">
+  <mat-card *ngIf="plano" class="detalhe-card mat-elevation-z8">
+
+    <div class="header">
+      <div class="title">
+        <mat-icon>assignment</mat-icon>
+        <h2>Detalhes do Plano</h2>
+      </div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-item">
+        <strong>Nome:</strong>
+        <span>{{ plano.nome }}</span>
+      </div>
+
+      <div class="info-item">
+        <strong>Código ANS:</strong>
+        <span>{{ plano.codigo_registro_ans }}</span>
+      </div>
+
+      <div class="info-item">
+        <strong>Tipo:</strong>
+        <span>{{ plano.nome }}</span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" routerLink="/administracao">
+        Voltar
+      </button>
+    </div>
+
+  </mat-card>
+</div>

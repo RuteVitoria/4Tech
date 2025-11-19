@@ -1,0 +1,37 @@
+<div class="page-wrapper">
+  <mat-card *ngIf="beneficiario" class="detalhe-card mat-elevation-z4">
+
+    <div class="title">
+      <mat-icon>person</mat-icon>
+      <h2>Detalhes do Beneficiário</h2>
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-item">
+        <strong>Nome:</strong> <span>{{ beneficiario.nomeCompleto }}</span>
+      </div>
+
+      <div class="info-item">
+        <strong>CPF:</strong> <span>{{ beneficiario.cpf }}</span>
+      </div>
+
+      <div class="info-item">
+        <strong>Data de Nascimento:</strong> 
+        <span>{{ beneficiario.dataNascimento }}</span>
+      </div>
+
+      <div class="info-item">
+        <strong>Tipo:</strong> <span>{{ plano?.nome }}</span>
+      </div>
+
+    </div>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" routerLink="/administracao">
+        Voltar
+      </button>
+    </div>
+
+  </mat-card>
+</div>

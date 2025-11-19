@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.snackbar-success {
+  background-color: #4caf50; /* verde */
+  color: #fff;
+  font-weight: 500;
+}
+
+.snackbar-error {
+  background-color: #f44336; /* vermelho */
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Ajusta a barra inferior dos botões do diálogo */
+mat-dialog-actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  padding: 16px 24px !important;
+  gap: 0.8rem !important;
+}
+
+/* Botões mais equilibrados e sem grudar na borda */
+mat-dialog-actions button {
+  min-width: 90px;
+  padding: 6px 14px;
+  border-radius: 8px !important;
+}
+
+/* Botão Excluir */
+.btn-excluir {
+  background-color: #e53935 !important;
+  color: white !important;
+}
+
+/* Botão Cancelar */
+.btn-cancelar {
+  background-color: #e0e0e0 !important;
+  color: #333 !important;
+}
